@@ -21,11 +21,6 @@ Manipulación del DOM:
 - Modificación de estilos y clases en tiempo real.
 - Sistema de notificaciones temporales con colores y mensajes.
 
-Efectos de sonido:
-- Sonido de sierra al eliminar elementos.
-- Sonidos de confirmación y error.
-- Botón dedicado para reproducir efectos de sonido decorativos.
-
 Almacenamiento local:
 - Uso de IndexedDB para guardar persistentemente los datos.
 - Operaciones CRUD completas (Crear, Leer, Actualizar, Eliminar).
