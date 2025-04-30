@@ -1,0 +1,332 @@
+/* Estilos para la aplicación del Aserradero */
+
+/* Variables de la paleta de colores */
+:root {
+  --neon: #ffff66; /* Un amarillo neon brillante */
+  --oscuro-base: #0a0a0a; /* Un negro aún más profundo */
+  --oscuro-intermedio: #333333; /* Un gris oscuro */
+  --azul-morado: #b34747; /* Un rojo oscuro con matices morados neon */
+  --azul-claro: #ff704d; /* Un naranja rojizo neon brillante */
+  --rosa-claro: #ffe57f; /* Un amarillo pálido con brillo neon */
+  --texto: #f0f0f0; /* Un gris claro para texto */
+  --error: #ff4d4d; /* Un rojo neon intenso para errores */
+  --rojo: #ff1a1a; /* Un rojo neon aún más brillante y puro */
+  --deshabilitado: #4d4d4d; /* Un gris más oscuro para elementos deshabilitados */
+}
+
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--oscuro-base);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Encabezado */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: var(--oscuro-intermedio);
+  border-radius: 10px;
+  border-bottom: 3px solid var(--neon);
+}
+
+header h1 {
+  color: var(--neon);
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px rgba(255, 255, 102, 0.5);
+}
+
+/* Secciones principales */
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+section {
+  background-color: var(--oscuro-intermedio);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+section h2 {
+  color: var(--rosa-claro);
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid var(--azul-claro);
+  padding-bottom: 10px;
+}
+
+/* Formulario */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--rosa-claro);
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--azul-morado);
+  border-radius: 5px;
+  background-color: var(--oscuro-base);
+  color: var(--texto);
+  font-size: 1rem;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--neon);
+  box-shadow: 0 0 8px var(--neon);
+}
+
+/* Estrellas de calificación */
+.rating-container {
+  display: flex;
+  font-size: 24px;
+}
+
+.star {
+  color: var(--deshabilitado);
+  cursor: pointer;
+  transition: color 0.2s;
+  margin-right: 5px;
+}
+
+.star.active {
+  color: var(--neon);
+}
+
+/* Botones */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+#btn-agregar {
+  background-color: var(--azul-claro);
+  color: var(--oscuro-base);
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+#btn-borrar-todo {
+  background-color: var(--azul-morado);
+  color: var(--texto);
+  padding: 10px 20px;
+  margin: 20px auto 0;
+  display: block;
+  width: 200px;
+}
+
+#btn-sonido {
+  background-color: var(--rosa-claro);
+  color: var(--oscuro-base);
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.sound-icon {
+  font-size: 1.2rem;
+}
+
+/* Inventario */
+.filtro-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.filtro-container label {
+  margin-right: 10px;
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.filtro-container select {
+  flex: 1;
+}
+
+#inventario-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Estilo para scrollbar */
+#inventario-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+#inventario-container::-webkit-scrollbar-track {
+  background: var(--oscuro-base);
+  border-radius: 5px;
+}
+
+#inventario-container::-webkit-scrollbar-thumb {
+  background: var(--azul-morado);
+  border-radius: 5px;
+}
+
+#inventario-container::-webkit-scrollbar-thumb:hover {
+  background: var(--azul-claro);
+}
+
+/* Tarjetas de inventario */
+.inventario-item {
+  background-color: var(--oscuro-base);
+  border: 2px solid var(--azul-morado);
+  border-radius: 8px;
+  padding: 15px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.inventario-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 112, 77, 0.3);
+  border-color: var(--azul-claro);
+}
+
+.inventario-tipo {
+  color: var(--neon);
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.inventario-info {
+  margin-bottom: 5px;
+}
+
+.inventario-calidad {
+  color: var(--neon);
+  margin: 10px 0;
+}
+
+.inventario-total {
+  font-weight: bold;
+  margin-top: 10px;
+  color: var(--rosa-claro);
+}
+
+.btn-eliminar {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: var(--error);
+  color: var(--texto);
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.btn-eliminar:hover {
+  background-color: var(--rojo);
+  transform: scale(1.1);
+}
+
+/* Notificaciones */
+.notificacion {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--azul-claro);
+  color: var(--oscuro-base);
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: bottom 0.5s;
+  z-index: 1000;
+  text-align: center;
+  min-width: 300px;
+}
+
+.notificacion.exito {
+  background-color: var(--neon);
+}
+
+.notificacion.error {
+  background-color: var(--error);
+  color: var(--texto);
+}
+
+.notificacion.mostrar {
+  bottom: 20px;
+}
+
+/* Pie de página */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  padding: 20px;
+  color: var(--texto);
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  #inventario-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}

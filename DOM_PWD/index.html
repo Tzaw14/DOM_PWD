@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Inventario - Aserradero</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Aserradero "El Pino Dorado"</h1>
+      <p>Sistema de Gestión de Inventario</p>
+    </header>
+
+    <main>
+      <section class="formulario-section">
+        <h2>Registrar Nueva Madera</h2>
+        <form id="form-madera">
+          <div class="form-group">
+            <label for="tipo">Tipo de Madera:</label>
+            <select id="tipo" required>
+              <option value="">Seleccione un tipo</option>
+              <option value="Pino">Pino</option>
+              <option value="Roble">Roble</option>
+              <option value="Cedro">Cedro</option>
+              <option value="Nogal">Nogal</option>
+              <option value="Caoba">Caoba</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="cantidad">Cantidad (m³):</label>
+            <input type="number" id="cantidad" min="1" step="0.1" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="precio">Precio por m³ ($):</label>
+            <input type="number" id="precio" min="100" step="10" required>
+          </div>
+
+          <div class="form-group">
+            <label for="calidad">Calidad:</label>
+            <div class="rating-container">
+              <span class="star" data-value="1">★</span>
+              <span class="star" data-value="2">★</span>
+              <span class="star" data-value="3">★</span>
+              <span class="star" data-value="4">★</span>
+              <span class="star" data-value="5">★</span>
+              <input type="hidden" id="calidad" value="0">
+            </div>
+          </div>
+          
+          <div class="buttons">
+            <button type="submit" id="btn-agregar">Agregar al Inventario</button>
+            <button type="button" id="btn-sonido" class="sound-btn">
+              <span class="sound-icon">🔊</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="inventario-section">
+        <h2>Inventario Actual</h2>
+        <div class="filtro-container">
+          <label for="filtro">Filtrar por tipo:</label>
+          <select id="filtro">
+            <option value="todos">Todos</option>
+            <option value="Pino">Pino</option>
+            <option value="Roble">Roble</option>
+            <option value="Cedro">Cedro</option>
+            <option value="Nogal">Nogal</option>
+            <option value="Caoba">Caoba</option>
+          </select>
+        </div>
+        <div id="inventario-container">
+          <!-- Aquí se mostrarán los items del inventario -->
+        </div>
+        <div class="buttons">
+          <button id="btn-borrar-todo">Borrar Todo</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="notificacion" class="notificacion">
+      <!-- Aquí aparecerán notificaciones -->
+    </div>
+
+    <footer>
+      <p>© 2025 - Aserradero "El Pino Dorado" - Sistema de Gestión DOM</p>
+    </footer>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
